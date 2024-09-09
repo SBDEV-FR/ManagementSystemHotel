@@ -1,5 +1,3 @@
-# main.py
-
 import tkinter as tk
 from tkinter import ttk
 import tkinter.font as tkFont
@@ -18,7 +16,7 @@ class HotelApp(tk.Tk):
 
         self.title("Gestion d'Hôtel")
         self.geometry("800x600")
-        self.configure(bg="#192734")
+        self.configure(bg="#572649")  # Couleur de fond principale
 
         # Initialize the database
         self.db = Database()
@@ -32,11 +30,11 @@ class HotelApp(tk.Tk):
 
     def create_widgets(self):
         # Frame principale
-        self.main_frame = tk.Frame(self, bg="#192734")
+        self.main_frame = tk.Frame(self, bg="#572649")
         self.main_frame.pack(fill=tk.BOTH, expand=True)
 
         # Menu (à droite)
-        menu_frame = tk.Frame(self.main_frame, bg="#2C3A47", width=200)
+        menu_frame = tk.Frame(self.main_frame, bg="#79305a", width=200)
         menu_frame.pack(side=tk.RIGHT, fill=tk.Y)
 
         # Boutons du menu
@@ -50,13 +48,13 @@ class HotelApp(tk.Tk):
         ]
 
         for button_text, command in menu_buttons:
-            button = tk.Button(menu_frame, text=button_text, bg="#3C3C50", fg="white", 
-                               activebackground="#2C3A47", activeforeground="white", 
+            button = tk.Button(menu_frame, text=button_text, bg="#bf6b99", fg="white", 
+                               activebackground="#79305a", activeforeground="white", 
                                relief=tk.FLAT, padx=10, pady=5, command=command)
             button.pack(fill=tk.X, padx=5, pady=2)
 
         # Créer le conteneur pour les pages
-        self.page_container = tk.Frame(self.main_frame, bg="#192734")
+        self.page_container = tk.Frame(self.main_frame, bg="#572649")
         self.page_container.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         # Créer les pages
@@ -95,6 +93,7 @@ class HotelApp(tk.Tk):
     def on_closing(self):
         self.db.close()
         self.destroy()
+        
 
 if __name__ == "__main__":
     app = HotelApp()
